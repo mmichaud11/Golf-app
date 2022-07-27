@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="static/static.css">
+    <title>Homepage</title>
+</head>
+<body>
+    <div class="navbar sticky-top text-light" id="navbar">
+        <div class="navbar-brand">Welcome, {{user.first_name}}</div>
+        <div class="butts">
+            <a href="/logout" class="btn" id="navButton">Logout</a>
+        </div>
+    </div>
+    <br>
+    <div class="container card rounded-0 text-light" style="background-color: #004b2e;">
+        <div class="h3 mt-1">{{team_one.team_name}}</div>
+        <div class="p">1: {{team_one.player1}}</div>
+        <div class="p">2: {{team_one.player2}}</div>
+        <div class="p">3: {{team_one.player3}}</div>
+        <div class="p">4: {{team_one.player4}}</div>
+        <div class="p">5: {{team_one.player5}}</div>
+        <div class="p">6: {{team_one.player6}}</div>
+        <!-- <div class="h5">Total Score:</div> -->
+        <a href="/create/team" class="btn form-control mb-2 text-light" style="background-color: #006b42;">Create Team</a>
+        <a href="/edit/profile/{{user.id}}" class="btn form-control mb-2 text-light" style="background-color: #006b42;">Edit Team Name / Profile</a>
+    </div>
+    <br>
+    <div class="col-12 mx-auto">
+        <table class="table table-hover text-light" style="background-color: #004b2e;">
+            <thead class="text-light" style="background-color: #003621">
+                <tr>
+                    <th class="d-flex justify-content-between">Teams</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for team in teams %}
+                    <tr>
+                        <td>
+                            <div class="d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#demo{{team.id}}">{{team.team_name}}</div>
+                            <div class="collapse" id="demo{{team.id}}">
+                            <small class="p d-flex text-light">1: {{team.player1}}</small>
+                            <small class="p d-flex text-light">2: {{team.player2}}</small>
+                            <small class="p d-flex text-light">3: {{team.player3}}</small>
+                            <small class="p d-flex text-light">4: {{team.player4}}</small>
+                            <small class="p d-flex text-light">5: {{team.player5}}</small>
+                            <small class="p d-flex text-light">6: {{team.player6}}</small>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <div class="form-group">
+            <a href="/tournament/leaderboard" class="btn form-control mb-2 text-light" style="background-color: #006b42;">Tournament Leaderboard</a>
+        </div>
+    </div>
+</body>
+</html>

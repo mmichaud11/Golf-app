@@ -1,0 +1,13 @@
+body {
+    background-color: #ecfaee;
+    font-family: arial;
+}
+
+#navbar {
+    background-color: #006b42;
+}
+
+#navButton {
+    background-color: #ffd700;
+    color: #006b42;
+}

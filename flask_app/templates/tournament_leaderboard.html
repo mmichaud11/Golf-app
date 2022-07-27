@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/static.css">
+    <title>Tournament Leaderboard</title>
+</head>
+<body>
+    <div class="navbar sticky-top text-light" style="background-color: #006b42;">
+        <div class="navbar-brand">{{user.first_name}}'s Profile</div>
+        <div class="butts">
+            <a href="/homepage" class="btn" style="background-color: #ffd700; color: #006b42;">Home</a>
+            <a href="/logout" class="btn" style="background-color: #ffd700; color: #006b42;">Logout</a>
+        </div>
+    </div>
+    <br>
+    <div class="container text-center" style="background-color: #004b2e;">
+        <div class="h1 text-light">Leaderboard</div>
+        <div class="h4 text-light">Cut: {{session.cutline}}</div>
+        {% for x in range(70) %}
+        <div class="card container">
+            <div class="h4 border-bottom">{{session.places[x]}}. {{session.fnames[x]}} {{session.lnames[x]}}</div>
+            <div class="p">Round 1: {{session.rones[x]}}</div>
+            <div class="p">Round 2: {{session.rtwos[x]}}</div>
+            <div class="p">Round 3: {{session.rthrees[x]}}</div>
+            <div class="p mb-2">Round 4: {{session.rfours[x]}}</div>
+            <div class="h5 border-top">Total Score: {{session.scores[x]}}</div>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/static.css">
+    <title>Create Team</title>
+</head>
+<body style="background-color: #ecfaee;">
+    <div class="navbar sticky-top text-light" style="background-color: #006b42;">
+        <div class="navbar-brand"></div>
+        <div class="butts">
+            <a href="/homepage" class="btn" style="background-color: #ffd700; color: #006b42;">Home</a>
+            <a href="/logout" class="btn" style="background-color: #ffd700; color: #006b42;">Logout</a>
+        </div>
+    </div>
+
+
+    <!-- The Counter, fixed to the bottom -->
+    <div class="navbar fixed-bottom text-light" style="background-color: #006b42">
+        <div class="navbar d-flex flex-row justify-content-between">0/6 Selected</div>
+        <div class="navbar">100 Points Left</div>
+    </div>
+
+
+    <div class="container text-center">
+        <br>
+        <div class="h2">Pick 6 Players</div>
+        <form action="/add" method="post">
+            <input type="submit" value="Enter Team" class="form-control" style="background-color: #ffd700; color: #006b42;"><br>
+            <div class="form-group">
+                <label for="team_name">Team Name</label>
+                <input type="text" class="form-control" name="team_name">
+            </div>
+            {% for x in range(70) %}
+            <input type="checkbox" value="{{session.fnames[x]}} {{session.lnames[x]}} {{session.scores[x]}}" name="player">
+            <label for="player"> {{session.fnames[x]}} {{session.lnames[x]}}</label><br>
+            {% endfor %}
+        </form><br><br>
