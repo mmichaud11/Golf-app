@@ -57,8 +57,6 @@ def homepage():
     team_one = Team.get_one(data)
     teams = Team.get_all()
     pick = False
-    # messages = Message.get_all()
-    # sender = User.get_sender(data)
     return render_template('homepage.html', user = user, users = users, teams = teams, team = team, team_one = team_one, pick = pick)
 
 @app.route('/edit/profile/<int:id>')

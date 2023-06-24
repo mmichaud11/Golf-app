@@ -32,7 +32,6 @@ def add():
     }
 
     user = User.get_one(data)
-    # users = User.get_all()
     team = Team.add(datas)
     team_one = Team.get_one(data)
     teams = Team.get_all()

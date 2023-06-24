@@ -24,12 +24,6 @@ class Team:
         query = "INSERT into teams (team_name, player1, player2, player3, player4, player5, player6, user_id) VALUES (%(team_name)s, %(player1)s, %(player2)s, %(player3)s, %(player4)s, %(player5)s, %(player6)s, %(user_id)s);"
         return connectToMySQL(db).query_db(query, data)
 
-    # @classmethod
-    # def update(cls, data):
-    #     query = "UPDATE teams SET first_selection=%(first_selection)s, second_selection=%(second_selection)s, third_selection=%(third_selection)s, fourth_selection=%(fourth_selection)s, fifth_selection=%(fifth_selection)s, sixth_selection=%(sixth_selection)s, updated_at=NOW() WHERE id = %(id)s;"
-    #     return connectToMySQL(db).query_db(query,data)
-
-
     @classmethod
     def get_one(cls, data):
         query = "SELECT * FROM teams WHERE user_id = %(id)s;"
