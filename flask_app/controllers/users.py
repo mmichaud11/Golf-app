@@ -3,7 +3,6 @@ import requests, os
 from flask import render_template, redirect, request, flash, session
 from flask_app.models.user import User
 from flask_app.models.team import Team
-# from flask_app.models.message import Message
 from flask_bcrypt import Bcrypt
 
 bcrypt = Bcrypt(app)
